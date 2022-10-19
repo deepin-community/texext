@@ -1,0 +1,37 @@
+Source: texext
+Section: python
+Priority: optional
+Maintainer: Sandro Tosi <morph@debian.org>
+Uploaders: Debian Python Modules Team <python-modules-team@lists.alioth.debian.org>,
+Build-Depends: debhelper-compat (= 13),
+               dh-python,
+               python3-all,
+               python3-docutils,
+               python3-matplotlib,
+               python3-pytest,
+               python3-setuptools,
+               python3-sphinx,
+               python3-sphinxtesters (>= 0.2.1),
+               python3-sympy,
+Standards-Version: 4.5.0
+Homepage: https://github.com/matthew-brett/texext
+Vcs-Git: https://salsa.debian.org/python-team/packages/texext.git
+Vcs-Browser: https://salsa.debian.org/python-team/packages/texext
+
+Package: python3-texext
+Architecture: all
+Depends: ${misc:Depends},
+         ${python3:Depends},
+Recommends: ${python3:Recommends},
+Suggests: ${python3:Suggests},
+Description: sphinx extensions for working with LaTeX math - Python
+ texext contains a couple of Sphinx extensions for working with LaTeX math:
+ .
+  * math_dollar, replaces math expressions between dollars in ReST with
+    equivalent inline math.
+ .
+  * users of sympy may want to generate LaTeX expressions dynamically in Sympy,
+    and then render them in LaTeX in the built pages. You can do this with the
+    mathcode directive
+ .
+ This package contains the Python 2 version of texext..

@@ -1,0 +1,72 @@
+texext (0.6.6-2) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * d/control: Update Vcs-* fields with new Debian Python Team Salsa
+    layout.
+
+  [ Sandro Tosi ]
+  * debian/patches/39aa947784142babe9d1618ef0d7189d062a0e58.patch
+    - fix tests errors; Closes: #971199
+
+ -- Sandro Tosi <morph@debian.org>  Sun, 01 Nov 2020 13:43:00 -0500
+
+texext (0.6.6-1) unstable; urgency=medium
+
+  * New upstream release; Closes: #952226
+  * debian/copyright
+    - update upstream copyright information
+    - extend packaging copyright years
+  * debian/control
+    - bump Standards-Version to 4.5.0 (no changes needed)
+    - wrap-and-sort
+    - bump compat level to 13
+
+ -- Sandro Tosi <morph@debian.org>  Sat, 25 Jul 2020 22:55:56 -0400
+
+texext (0.6.1-2) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * Use debhelper-compat instead of debian/compat.
+
+  [ Sandro Tosi ]
+  * Drop python2 support; Closes: #938654
+  * debian/control
+    - bump Standards-Version to 4.4.1 (no changes needed)
+  * debian/copyright
+    - extend packaging copyright years
+
+ -- Sandro Tosi <morph@debian.org>  Tue, 12 Nov 2019 17:43:14 -0500
+
+texext (0.6.1-1) unstable; urgency=medium
+
+  * New upstream release; Closes: #906320
+  * debian/control
+    - b-d on sphinxtesters >= 0.2.1
+    - bump Standards-Version to 4.2.1 (no changes needed)
+
+ -- Sandro Tosi <morph@debian.org>  Sun, 16 Dec 2018 23:42:53 -0500
+
+texext (0.6-2) unstable; urgency=medium
+
+  * run tests via pytest, not nose
+
+ -- Sandro Tosi <morph@debian.org>  Sat, 12 May 2018 17:29:43 -0400
+
+texext (0.6-1) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * d/control: Remove trailing whitespaces
+
+  [ Sandro Tosi ]
+  * New upstream release
+  * debian/control
+    - update upstream copyright notice
+
+ -- Sandro Tosi <morph@debian.org>  Sat, 12 May 2018 17:03:29 -0400
+
+texext (0.5-1) unstable; urgency=low
+
+  * Initial release; Closes: 895759
+
+ -- Sandro Tosi <morph@debian.org>  Sun, 15 Apr 2018 18:28:15 +0000
+
