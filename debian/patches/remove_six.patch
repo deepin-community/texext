@@ -1,0 +1,52 @@
+From 0c0f57a24955ed73f5eac87776b4e422f81052a3 Mon Sep 17 00:00:00 2001
+From: Alexandre Detiste <alexandre.detiste@gmail.com>
+Date: Tue, 17 Dec 2024 09:40:55 +0100
+Subject: [PATCH] remove undeclared usage of "six"
+
+---
+ texext/mathcode.py                 | 4 +---
+ texext/tests/test_plotdirective.py | 6 +-----
+ 2 files changed, 2 insertions(+), 8 deletions(-)
+
+diff --git a/texext/mathcode.py b/texext/mathcode.py
+index 4549af8..5c7203e 100644
+--- a/texext/mathcode.py
++++ b/texext/mathcode.py
+@@ -89,12 +89,10 @@
+ 
+ 
+ def eval_code(code_str, context):
+-    # Avoid depending on six unless running mathcode directive
+-    from six import exec_
+     mod = parse(code_str, '<string>', 'exec')
+     last_line = mod.body.pop() if isinstance(mod.body[-1], Expr) else None
+     to_exec = compile(mod, '<string>', 'exec')
+-    exec_(to_exec, None, context)
++    exec(to_exec, None, context)
+     if last_line is None:
+         return None
+     to_eval = compile(Expression(last_line.value), '<string>', 'eval')
+diff --git a/texext/tests/test_plotdirective.py b/texext/tests/test_plotdirective.py
+index ae2ae56..c9e9c32 100644
+--- a/texext/tests/test_plotdirective.py
++++ b/texext/tests/test_plotdirective.py
+@@ -6,8 +6,6 @@
+ from os.path import dirname, join as pjoin
+ import re
+ 
+-from six import PY3
+-
+ import sphinx
+ 
+ SPHINX_ge_1p8 = sphinx.version_info[:2] >= (1, 8)
+@@ -36,9 +34,7 @@ def format_math_block(name, latex, label=None, number=None,
+     label = 'None' if label is None else label
+     # Sphinx >= 1.5 has number="" clause in parameters
+     number_part = ' number="{}"'.format(number) if SPHINX_ge_1p5 else ''
+-    u_prefix = '' if PY3 or SPHINX_ge_1p7 else 'u'
+-    id_part = '' if ids is None else """ids="[{}'{}']" """.format(
+-        u_prefix, ids)
++    id_part = '' if ids is None else """ids="['{}']" """.format(ids)
+     return (
+         '<displaymath docname="{}" {}label="{}" '
+         'latex="{}" nowrap="False"{}/>'.format(

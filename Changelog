@@ -1,0 +1,176 @@
+.. -*- mode: rst -*-
+.. vim:ft=rst
+
+.. _changelog:
+
+############################
+Texext development Changelog
+############################
+
+Texext contains some utilities for working with LaTeX math in Sphinx.
+
+Texext started life as the ``math_dollar`` Sphinx extension by Ondřej Čertík
+(OC) along with an extension for working with Sympy math by Matthew Brett
+(MB).
+
+********
+Releases
+********
+
+0.6.7
+=====
+
+Bugfix release
+
+* Adapt to newer docutils.
+* Update minimum requirements.
+* Move to Github actions CI.
+
+0.6.6
+=====
+
+Bugfix release
+
+* Adapt to newer Sphinx math nodes.  Required for compatibility with Sphinx 3.
+
+0.6.5
+=====
+
+Bugfix release
+
+* Fix misspelled test-requirements.txt
+
+0.6.4
+=====
+
+Bugfix release
+
+* Include requirements files - thanks to Douglas Fenstermacher.
+
+0.6.3
+=====
+
+Bugfix release:
+
+* Always import `math` node from docutils - thanks to Chris Markiewicz.
+* Always use setuptools
+* Simplify and fix requirements specification.
+
+0.6.2
+=====
+
+Bugfix release:
+
+* Try importing `math` node from docutils by default to avoid warning - thanks
+  to Jerry James for this fix.
+* Adapt tests to changes in Sphinx 1.8 and 2.0 output.
+
+0.6.1
+=====
+
+Bugfix release:
+
+* Adapt to Sphinx 1.8 imports - particularly mathcode.
+
+0.6
+===
+
+Bugfix release:
+
+* Adapt testing to Sphinx 1.7 variants.
+* Use pytest for tests.
+* Add documentation to sdist.
+
+
+0.5
+===
+
+Bugfix release:
+
+* Change return value from math_dollar doctest parser to be list of strings,
+  one per line, rather than a single multiline string.  This makes it possible
+  for other ReST transforms to run correctly on the output, such as links and
+  substitutions.  Add tests to confirm this works correctly.
+* Add ability to import ``math_dollar`` and ``mathcode`` from top level import
+  of ``texext``.
+* Refactor testing to use ``sphinxtesters`` module.
+
+0.4
+===
+
+Bugfix release for compatibility with Sphinx >= 1.6
+
+* Refactor math_dollar extension to use docutils transform instead of
+  NodeVisitor.  This works round a change in Sphinx >= 1.6 which resulted in
+  the node "rawsource" being discarded during the transform phase, making it
+  impossible to correctly replace the math
+
+0.3.4
+=====
+
+Bugfix release:
+
+* Fix and test mathcode equation labeling for different versions of Sphinx.
+
+0.3.3
+=====
+
+Bugfix release:
+
+* Mathcode creates a displaymath node, but was not adding a ``number``
+  attribute to the node.  ``sphinx.ext.mathjax`` later expects to see
+  ``number`` as a node attribute (but it can be None).  Set ``number`` to None
+  by default.
+
+0.3.2
+=====
+
+Configuration change:
+
+* Changed method of pointing mathcode directive at the context for plots.  The
+  old method attached a module to the sphinx config, making the config
+  impossible to pickle, so forcing a rebuild of all pages for each call to
+  sphinx-build.  The new method uses a string that we use to import the
+  attribute containing the plot context.
+
+0.3.1
+=====
+
+Bugfix release:
+
+* Fixed processing of backslash escape characters in ReST input with dollars.
+
+0.3.0
+=====
+
+Bugfix release:
+
+* Use different method to get text to parse in Sphinx pages.  We were
+  previously getting the raw ReST text and trying to do partial parsing with
+  regexps, but this was getting brittle, and there were already some nasty
+  bugs to do with the order we were putting back stuff we had taken out.
+  Instead, look for math dollars in the parsed doctree, so we can avoid
+  things like literal blocks via the ReST parser.  We continue to use the
+  regex parser on docstrings though;
+* Deal with multiple backticks used as sphinx section underlines, confusing
+  the regex parser;
+* No longer exclude all indented lines from math dollar parsing, because it's
+  fairly common to have math dollars in list items, which are indented;
+* Extend tests to cover math in list elements;
+
+0.2.0
+=====
+
+Bugfix release:
+
+* Fix use of custom plot_directive;
+* Some testing fixes;
+
+0.1.0
+=====
+
+Initial release:
+
+* Refactored ``math_dollar`` extension to exclude more potential false
+  positives, add tests;
+* Add ``mathcode`` directive.

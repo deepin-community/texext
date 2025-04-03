@@ -1,1 +1,10 @@
-.pc/
+*.pyc
+*~
+build/
+.coverage
+dist/
+texext.egg-info/
+MANIFEST
+.html.txt
+.cache/
+.pytest_cache/
