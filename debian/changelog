@@ -1,3 +1,62 @@
+texext (0.6.7-6) unstable; urgency=medium
+
+  * Team upload.
+  * Remove undeclared usage of "six" (Closes: #1090174)
+
+ -- Alexandre Detiste <tchet@debian.org>  Tue, 17 Dec 2024 09:44:30 +0100
+
+texext (0.6.7-5) unstable; urgency=medium
+
+  * Add my ID to Uploaders
+    Closes: #1064948
+
+ -- Andreas Tille <tille@debian.org>  Thu, 28 Mar 2024 10:20:58 +0100
+
+texext (0.6.7-4) unstable; urgency=medium
+
+  * orphan
+
+ -- Sandro Tosi <morph@debian.org>  Wed, 28 Feb 2024 01:02:20 -0500
+
+texext (0.6.7-3) unstable; urgency=medium
+
+  * Team upload.
+  * Set DPT as Maintainer
+  * Python3.12 support
+    Closes: #1057604
+  * Standards-Version: 4.6.2 (routine-update)
+  * Reorder sequence of d/control fields by cme (routine-update)
+  * Testsuite: autopkgtest-pkg-python (routine-update)
+  * Build-Depends: s/dh-python/dh-sequence-python3/ (routine-update)
+  * Add salsa-ci file (routine-update)
+  * Rules-Requires-Root: no (routine-update)
+  * Set upstream metadata fields: Repository.
+  * Ignore test that fails with recent sphinx
+
+ -- Andreas Tille <tille@debian.org>  Fri, 15 Dec 2023 20:26:59 +0100
+
+texext (0.6.7-2) UNRELEASED; urgency=medium
+
+  * Trim trailing whitespace.
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository-Browse.
+
+ -- Debian Janitor <janitor@jelmer.uk>  Fri, 14 Oct 2022 09:27:38 -0000
+
+texext (0.6.7-1) unstable; urgency=medium
+
+  * New upstream release; Closes: #997466
+  * Use the new Debian Python Team contact name and address
+  * debian/watch
+    - track releases on github
+  * debian/patches
+    - drop patches, merged upstream
+  * debian/copyright
+    - extend packaging copyright years
+  * debian/control
+    - bump Standards-Version to 4.6.1 (no changes needed)
+
+ -- Sandro Tosi <morph@debian.org>  Sun, 05 Jun 2022 00:57:44 -0400
+
 texext (0.6.6-2) unstable; urgency=medium
 
   [ Ondřej Nový ]
@@ -69,4 +128,3 @@ texext (0.5-1) unstable; urgency=low
   * Initial release; Closes: 895759
 
  -- Sandro Tosi <morph@debian.org>  Sun, 15 Apr 2018 18:28:15 +0000
-
